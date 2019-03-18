@@ -14,12 +14,14 @@
         todoList.todos = [
             { text: "learn AngularJS", done: true },
             { text: "build an AngularJS app", done: false }];
-
+           
         todoList.addTodo = function () {
-            todoList.todos.push({ text: todoList.todoText, done: false });
-            todoList.todoText = "";
+            if (todoList.todoText != "" && todoList.todoText != undefined) {
+                todoList.todos.push({ text: todoList.todoText, done: false });               
+                todoList.todoText = "";
+                document.querySelector("#todoText").focus();
+              }            
         };
-
         todoList.remaining = function () {
             var count = 0;
             angular.forEach(todoList.todos, function (todo) {
