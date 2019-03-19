@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Dev Test 1", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
+                @Html.ActionLink("Dev Test 4", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
         </div>
     </div>

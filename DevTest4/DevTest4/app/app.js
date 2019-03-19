@@ -11,13 +11,23 @@
     })
     .controller("TodoListController", function () {
         var todoList = this;
+
+        angular.element("#todoText").trigger('focus');
+
+        var todoText = "";
         todoList.todos = [
             { text: "learn AngularJS", done: true },
             { text: "build an AngularJS app", done: false }];
 
         todoList.addTodo = function () {
-            todoList.todos.push({ text: todoList.todoText, done: false });
-            todoList.todoText = "";
+            todoText = todoList.todoText;
+            console.log('new value is ' + todoText);
+            if (todoText !== undefined && todoText !== null) {
+                todoList.todos.push({ text: todoList.todoText, done: false });
+                todoList.todoText = "";
+                todoList.todoText = undefined;
+                angular.element("#todoText").trigger('focus');
+            }
         };
 
         todoList.remaining = function () {
@@ -35,5 +45,5 @@
                 if (!todo.done) todoList.todos.push(todo);
             });
         };
-
+        
     });
