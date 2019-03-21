@@ -16,8 +16,11 @@
             { text: "build an AngularJS app", done: false }];
 
         todoList.addTodo = function () {
-            todoList.todos.push({ text: todoList.todoText, done: false });
-            todoList.todoText = "";
+            if (todoList.todoText.length > 0) { // Checks whether the text is empty or not
+                todoList.todos.push({ text: todoList.todoText, done: false });
+                todoList.todoText = "";
+                todoText.focus(); // points the focus to the textbox
+            }
         };
 
         todoList.remaining = function () {

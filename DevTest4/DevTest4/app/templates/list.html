@@ -9,8 +9,12 @@
         </label>
     </li>
 </ul>
-<form ng-submit="todoList.addTodo()">
-    <input id="todoText" type="text" ng-model="todoList.todoText" size="30"
-           placeholder="add new todo here">
+<form name="todoform" ng-submit="todoList.addTodo()">
+    <input id="todoText" name="txtToDoList" type="text" ng-model="todoList.todoText" size="30"
+           placeholder="add new todo here" autofocus="{{todoText}}" required>
     <input class="btn-primary" type="submit" value="add">
+    <br />
+    <span style="color:red" ng-show="todoform.txtToDoList.$error.required">
+        Todo task is required.
+    </span>
 </form>
