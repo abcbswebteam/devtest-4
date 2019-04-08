@@ -14,10 +14,17 @@
         todoList.todos = [
             { text: "learn AngularJS", done: true },
             { text: "build an AngularJS app", done: false }];
-
+			
+	    todoText.focus();
+		
         todoList.addTodo = function () {
+			if (todoText.value === "") {
+                todoText.focus();
+                return;
+            }
             todoList.todos.push({ text: todoList.todoText, done: false });
             todoList.todoText = "";
+			todoText.focus();
         };
 
         todoList.remaining = function () {
