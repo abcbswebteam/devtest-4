@@ -11,6 +11,7 @@
     })
     .controller("TodoListController", function () {
         var todoList = this;
+        var input = document.getElementById("todoText");
         todoList.todos = [
             { text: "learn AngularJS", done: true },
             { text: "build an AngularJS app", done: false }];
@@ -18,6 +19,7 @@
         todoList.addTodo = function () {
             todoList.todos.push({ text: todoList.todoText, done: false });
             todoList.todoText = "";
+            input.focus();
         };
 
         todoList.remaining = function () {

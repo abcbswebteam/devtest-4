@@ -9,8 +9,8 @@
         </label>
     </li>
 </ul>
-<form ng-submit="todoList.addTodo()">
+<form name="myForm" ng-submit="todoList.addTodo()">
     <input id="todoText" type="text" ng-model="todoList.todoText" size="30"
-           placeholder="add new todo here">
-    <input class="btn-primary" type="submit" value="add">
+           placeholder="add new todo here" autofocus required>
+    <input class="btn-primary" type="submit" value="add" ng-disabled="myForm.$invalid">
 </form>
