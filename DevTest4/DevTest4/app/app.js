@@ -18,6 +18,8 @@
         todoList.addTodo = function () {
             todoList.todos.push({ text: todoList.todoText, done: false });
             todoList.todoText = "";
+            'setting the focus once item has added
+            todoList.focus();
         };
 
         todoList.remaining = function () {
