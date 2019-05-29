@@ -11,12 +11,16 @@
     })
     .controller("TodoListController", function () {
         var todoList = this;
+        todoList.todoText.focus();
         todoList.todos = [
             { text: "learn AngularJS", done: true },
             { text: "build an AngularJS app", done: false }];
 
         todoList.addTodo = function () {
-            todoList.todos.push({ text: todoList.todoText, done: false });
+            if (todoList.todoText.length !== 0 && typeof todoList.todoText !== 'undefined') {
+                todoList.todos.push({ text: todoList.todoText, done: false });
+                todoList.todoText.focus();
+            }
             todoList.todoText = "";
         };
 
