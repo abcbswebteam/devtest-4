@@ -16,8 +16,12 @@
             { text: "build an AngularJS app", done: false }];
 
         todoList.addTodo = function () {
-            todoList.todos.push({ text: todoList.todoText, done: false });
-            todoList.todoText = "";
+            if (todoList.todoText) {
+                todoList.todos.push({ text: todoList.todoText, done: false });
+                todoList.todoText = "";
+            }
+            var input = document.getElementById("todoText");
+            input.focus();
         };
 
         todoList.remaining = function () {
