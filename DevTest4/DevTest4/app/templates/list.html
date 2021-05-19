@@ -4,13 +4,23 @@
 <ul class="unstyled">
     <li ng-repeat="todo in todoList.todos">
         <label class="checkbox">
-            <input type="checkbox" ng-model="todo.done">
+            <input type="checkbox" ng-model="todo.done"  onchange="focusOnInput()">
             <span class="done-{{todo.done}}">{{todo.text}}</span>
         </label>
     </li>
 </ul>
-<form ng-submit="todoList.addTodo()">
+<form name="todoAddForm" ng-submit="todoList.addTodo()">
     <input id="todoText" type="text" ng-model="todoList.todoText" size="30"
-           placeholder="add new todo here">
-    <input class="btn-primary" type="submit" value="add">
+           placeholder="add new todo here" required />
+    <div ng-messages="todoList.todoText.$error">
+        <div ng-message="required">Todo text is required</div>
+    </div>
+    <input class="btn-primary" type="submit" ng-disabled="todoAddForm.$invalid" value="add">
 </form>
+
+<script>
+    function focusOnInput() {
+        document.getElementById('todoText').focus();
+    };
+    focusOnInput();
+</script>
